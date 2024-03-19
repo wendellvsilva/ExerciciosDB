@@ -18,6 +18,7 @@ public class Menu {
             System.out.println("7 - Calcular a série de Fibonacci");
             System.out.println("8 - Jogo do numero(nao sei que nome dar)");
             System.out.println("9 - Calcular a série de Fibonacci com limite");
+            System.out.println("10 - Soma da diagonal principal da matriz");
             System.out.println("0 - Sair");
             escolha = scanner.nextInt();
 
@@ -46,6 +47,9 @@ public class Menu {
                     break;
                 case 9:
                     FibonacciComLimite(scanner);
+                    break;
+                case 10:
+                    SomaDiagonalPrincipal();
                     break;
 
                 case 0:
@@ -225,6 +229,24 @@ public class Menu {
             b = aux + b;
         }
     }
+
+    public static void SomaDiagonalPrincipal() {
+        double[][] matriz = {
+                {1, 2, 3},
+                {4, 5, 6},
+                {7, 8, 9}
+        };
+
+        int n = matriz.length;
+
+        double somaDiagonal = 0;
+        for (int i = 0; i < n; i++) {
+            somaDiagonal += matriz[i][i];
+        }
+
+        System.out.println("A soma da diagonal principal é: " + somaDiagonal);
+    }
+
 
 
     public static void lerNumero(Scanner scanner) {
