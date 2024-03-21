@@ -56,6 +56,9 @@ public class Menu {
                 case 10:
                     SomaDiagonalPrincipal();
                     break;
+                case 11:
+                    vetorBubbleSort(random);
+                    break;
 
                 case 0:
                     System.out.println("Programa encerrado!");
