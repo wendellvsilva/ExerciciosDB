@@ -1,3 +1,5 @@
+package Exercicios1ao13;
+
 import java.util.Scanner;
 import java.util.Random;
 
@@ -16,9 +18,10 @@ public class Menu {
             System.out.println("5 - Tabuada");
             System.out.println("6 - Gerar 10 números aleatórios");
             System.out.println("7 - Calcular a série de Fibonacci");
-            System.out.println("8 - Jogo do numero(nao sei que nome dar)");
+            System.out.println("8 - Acertar número");
             System.out.println("9 - Calcular a série de Fibonacci com limite");
             System.out.println("10 - Soma da diagonal principal da matriz");
+            System.out.println("11 - Algoritmo de BubbleSort");
             System.out.println("0 - Sair");
             escolha = scanner.nextInt();
 
@@ -37,11 +40,13 @@ public class Menu {
                     break;
                 case 5:
                     Tabuada(scanner);
+                    break;
                 case 6:
                     gerarNumerosAleatorios(random);
                     break;
                 case 7:
                     Fibonacci(scanner);
+                    break;
                 case 8:
                     lerNumero(scanner);
                     break;
@@ -185,7 +190,7 @@ public class Menu {
     public static void gerarNumerosAleatorios(Random random) {
         int[] numeros = new int[10];
         for (int i = 0; i < 10; i++) {
-            numeros[i] = random.nextInt(101);//método da biblioteca random pra gerar entre 0 e 100
+            numeros[i] = random.nextInt(100);//método da biblioteca random pra gerar entre 0 e 100
             System.out.print(numeros[i] + " ");
         }
         int menor = numeros[0];
@@ -198,7 +203,8 @@ public class Menu {
                 maior = numeros[i];
             }
         }
-        System.out.print("Números gerados: ");
+
+
         System.out.println("Menor número:" + menor);
         System.out.println("Maior número:" + maior);
 
@@ -261,4 +267,13 @@ public class Menu {
 
         System.out.println("Parabéns! O número correto é o " + numeroCerto + "!");
     }
+
+    public static void vetorBubbleSort(Random random) {
+        int[] numeros = new int[100];
+        for (int i = 0; i < 10; i++) {
+            numeros[i] = random.nextInt(100);
+            System.out.print(numeros[i] + " ");
+        }
+    }
 }
+
