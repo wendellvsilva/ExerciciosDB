@@ -3,6 +3,11 @@ package Prova;
 import java.util.ArrayList;
 
 public class Estoque {
+
+    public Estoque() {
+        inicializaEstoque();
+    }
+
     private int id = 1;
     private ArrayList<Produto> listaDeProdutos = new ArrayList<>();
 
