@@ -4,6 +4,8 @@ package EmprestimoLivros;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+//pesquisei um pouco sobre hashmaps em java, mas ainda não tenho a confiança e conhecimento de usar.
+
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -108,7 +110,7 @@ public class Main {
                     }
                     break;
                 case 0:
-                    System.out.println("Saindo...");
+                    System.out.println("Obrigado por utilizar nossa livraria!");
                     break;
                 default:
                     System.out.println("Opção inválida!");

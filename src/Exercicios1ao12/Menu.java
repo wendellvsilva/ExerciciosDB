@@ -63,7 +63,7 @@ public class Menu {
                     vetorBubbleSort(random);
                     break;
                 case 12:
-                    doisVetoresBubbleSort(random);
+                    doisVetoresArraysSort(random);
                     break;
 
 
