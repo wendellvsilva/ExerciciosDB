@@ -21,21 +21,13 @@ public class Estoque {
         listaDeProdutos.add(p3);
     }
 
-    public void mostraEstoque() {
+    public void imprimeCatalogoDoEstoque() {
         System.out.println("Estoque:");
         for (Produto produto : listaDeProdutos) {
             System.out.println(produto.getNome() + " - " + produto.getQuantidadeEmEstoque());
         }
     }
 
-    public Produto encontraProduto(String nome) {
-        for (Produto produto : listaDeProdutos) {
-            if (produto.getNome().equalsIgnoreCase(nome)) {
-                return produto;
-            }
-        }
-        return null;
-    }
 
     public Produto encontraProduto(int id) {
         for (Produto produto : listaDeProdutos) {
@@ -54,21 +46,7 @@ public class Estoque {
         return false;
     }
 
-    public void imprimeCatalogoDoEstoque() {
-        System.out.println("Catálogo do Estoque:");
-        for (Produto produto : listaDeProdutos) {
-            System.out.println(produto.getId() + " - " + produto.getNome() + " - R$ " + produto.getPreco());
-        }
-    }
 
-    public boolean darBaixaEmEstoque(String nome, int quantidadeParaDarBaixa) {
-        Produto produto = encontraProduto(nome);
-        if (produto != null && produto.getQuantidadeEmEstoque() >= quantidadeParaDarBaixa) {
-            produto.setQuantidadeEmEstoque(produto.getQuantidadeEmEstoque() - quantidadeParaDarBaixa);
-            return true;
-        }
-        return false;
-    }
 
     public boolean darBaixaEmEstoque(int id, int quantidadeParaDarBaixa) {
         Produto produto = encontraProduto(id);
@@ -77,10 +55,6 @@ public class Estoque {
             return true;
         }
         return false;
-    }
-
-    public int getPosicaoDoProdutoNaLista(Produto produto) {
-        return listaDeProdutos.indexOf(produto);
     }
 
     public boolean temEstoqueOuNao(Produto produto, int quantidadeParaDarBaixa) {

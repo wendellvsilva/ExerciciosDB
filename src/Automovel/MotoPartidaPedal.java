@@ -6,7 +6,6 @@ public class MotoPartidaPedal extends Moto {
     private boolean aceleradorPuxado;
 
     public MotoPartidaPedal() {
-        super();
         this.aceleradorPuxado = false;
     }
 

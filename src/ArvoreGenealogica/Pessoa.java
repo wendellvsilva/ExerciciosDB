@@ -51,6 +51,7 @@ public class Pessoa {
 
 
     public void imprimirArvoreGenealogica() {
+        System.out.println("ÁRVORE GENEALÓGICA DB");
         if (pai != null) {
             if (pai.getPai() != null) {
                 System.out.println("Avô Paterno: " + pai.getPai().getNome() + ", Idade: " + pai.getPai().getIdade());
@@ -59,8 +60,7 @@ public class Pessoa {
                 System.out.println("Avó Paterna: " + pai.getMae().getNome() + ", Idade: " + pai.getMae().getIdade());
             }
             System.out.println("Pai: " + pai.getNome() + ", Idade: " + pai.getIdade());
-        } else {
-            System.out.println("Pai: Desconhecido");
+
         }
         if (mae != null) {
             if (mae.getPai() != null) {
@@ -70,8 +70,7 @@ public class Pessoa {
                 System.out.println("Avó Materna: " + mae.getMae().getNome() + ", Idade: " + mae.getMae().getIdade());
             }
             System.out.println("Mãe: " + mae.getNome() + ", Idade: " + mae.getIdade());
-        } else {
-            System.out.println("Mãe: Desconhecida");
+
         }
         System.out.println("Nome: " + nome + ", Idade: " + idade);
     }

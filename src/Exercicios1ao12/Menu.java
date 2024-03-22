@@ -1,5 +1,6 @@
-package Exercicios1ao13;
+package Exercicios1ao12;
 
+import java.util.Arrays;
 import java.util.Scanner;
 import java.util.Random;
 
@@ -10,7 +11,7 @@ public class Menu {
 
         int escolha;
         do {
-            System.out.println("Selecione um dos exercicíos :");
+            System.out.println("---------------MENU DB----------- :");
             System.out.println("1- Verificar se uma pessoa é maior de idade");
             System.out.println("2 - Desconto em produtos");
             System.out.println("3 - Jogar Jokenpo");
@@ -22,7 +23,9 @@ public class Menu {
             System.out.println("9 - Calcular a série de Fibonacci com limite");
             System.out.println("10 - Soma da diagonal principal da matriz");
             System.out.println("11 - Algoritmo de BubbleSort");
+            System.out.println("12 - Ordenar dois vetores");
             System.out.println("0 - Sair");
+            System.out.println("Digite o que deseja fazer:  ");
             escolha = scanner.nextInt();
 
             switch(escolha) {
@@ -59,6 +62,10 @@ public class Menu {
                 case 11:
                     vetorBubbleSort(random);
                     break;
+                case 12:
+                    doisVetoresBubbleSort(random);
+                    break;
+
 
                 case 0:
                     System.out.println("Programa encerrado!");
@@ -271,12 +278,105 @@ public class Menu {
         System.out.println("Parabéns! O número correto é o " + numeroCerto + "!");
     }
 
-    public static void vetorBubbleSort(Random random) {
+    public static void vetorBubbleSort(Random numeroAleatorio) {
         int[] numeros = new int[100];
-        for (int i = 0; i < 10; i++) {
-            numeros[i] = random.nextInt(100);
-            System.out.print(numeros[i] + " ");
+        numeroAleatorio = new Random();
+        for (int i = 0; i < numeros.length; i++) {
+            numeros[i] = numeroAleatorio.nextInt(100);
+        }
+        for (int i = 0; i < numeros.length - 1; i++) {
+            for (int j = 0; j < numeros.length - 1 - i; j++) {
+                if (numeros[j] > numeros[j + 1]) {
+                    int aux = numeros[j];
+                    numeros[j] = numeros[j + 1];
+                    numeros[j + 1] = aux;
+                }
+            }
+        }
+
+
+        for (int numero : numeros) {
+            System.out.print(numero + " ");
         }
     }
+
+    public static void doisVetoresBubbleSort(Random n1) {
+        Random random = new Random();
+        doisVetoresArraysSort(random);
+    }
+
+
+    public static void doisVetoresArraysSort(Random random) {
+
+        int[] vetor1 = criarVetorAleatorio(50, random);
+        Arrays.sort(vetor1);
+
+        int[] vetor2 = criarVetorAleatorio(50, random);
+        Arrays.sort(vetor2);
+
+        //o vetor combinado só junta os vetores mesmo
+        int[] vetorCombinado = new int[vetor1.length + vetor2.length];
+
+        //nesses dois for, eu bssicamente copio os valores do vetor 1 e 2
+        for (int i = 0; i < vetor1.length; i++) {
+            vetorCombinado[i] = vetor1[i];
+        }
+
+        for (int i = 0; i < vetor2.length; i++) {
+            vetorCombinado[vetor1.length + i] = vetor2[i];
+        }
+
+        Arrays.sort(vetorCombinado);
+        System.out.println("Vetor 1 ordenado:");
+        for (int valor : vetor1) {
+            System.out.print(valor + " ");
+        }
+        System.out.println();
+
+        System.out.println("\nVetor 2 ordenado:");
+        for (int valor : vetor2) {
+            System.out.print(valor + " ");
+        }
+        System.out.println();
+
+        System.out.println("\nVetor combinado e ordenado:");
+        for (int valor : vetorCombinado) {
+            System.out.print(valor + " ");
+        }
+        System.out.println();
+    }
+
+    public static int[] criarVetorAleatorio(int tamanho, Random random) {
+        int[] vetor = new int[tamanho];
+        for (int i = 0; i < vetor.length; i++) {
+            vetor[i] = random.nextInt(100);//
+            // funcionalidade da biblioteca random pra gerar 100 números aleatórios
+        }
+        return vetor;
+    }
 }
+
+
+
+
+
+
+// resolver bug dos sysout do vetor depois...
+//    void imprimirVetor(int[] vetor) {
+//        for (int valor : vetor) {
+//            System.out.print(valor + " ");
+//        }
+//        System.out.println();
+//    }
+//}
+
+
+
+
+
+
+
+
+
+
 

@@ -5,20 +5,12 @@ import java.util.Scanner;
 
 public class Pedido {
 
-
     private ArrayList<Item> listaDeItens = new ArrayList<>();
     private double valorTotalDoPedido = 0;
 
-    public double calcularValorTotal() {
-        valorTotalDoPedido = 0;
-        for (Item item : listaDeItens) {
-            valorTotalDoPedido += item.getValorDoItem();
-        }
+    public double calcularValorTotal(Produto produto, int quantidade) {
+        double valorTotalDoPedido = produto.getPreco() * quantidade;
         return valorTotalDoPedido;
-    }
-
-    public void setListaDeItens(ArrayList<Item> listaDeItens) {
-        this.listaDeItens = listaDeItens;
     }
 
     public boolean adicionarItemNaLista(Produto produto, int quantidade) {
@@ -41,34 +33,40 @@ public class Pedido {
         System.out.println("Valor Total do Pedido: R$" + valorTotalDoPedido);
     }
 
-    public void adicionaItem() {
-    }
-
-    public int recebeNomeDoTeclado() {
-        return 0;
-    }
-
     public void limparCarrinho() {
         listaDeItens.clear();
     }
 
-    public void calcularNotasTroco(double troco) {
-        int[] notas = {100, 50, 20, 10, 5, 2};//sao as notas em papel existentes no Brasil
-
-        System.out.println("Valor do troco: R$" + troco);
-        System.out.println("Notas para o troco:");
-
-        for (int nota : notas) {
-            int quantidade = (int) (troco / nota);
-            troco -= quantidade * nota;
-            if (quantidade > 0) {
-                System.out.println(quantidade + " nota(s) de R$" + nota);
+    public int calcularNotasTroco(double troco) {
+        int contador = 0;
+        while (troco > 0) {
+            if (troco >= 200) {
+                troco -= 200;
+                contador++;
+            } else if (troco >= 100) {
+                troco -= 100;
+                contador++;
+            } else if (troco >= 50) {
+                troco -= 50;
+                contador++;
+            } else if (troco >= 20) {
+                troco -= 20;
+                contador++;
+            } else if (troco >= 10) {
+                troco -= 10;
+                contador++;
+            } else if (troco >= 5) {
+                troco -= 5;
+                contador++;
+            } else if (troco >= 2) {
+                troco -= 2;
+                contador++;
+            } else {
+                troco -= 1; //isso evita loops infinitos quando o troco restante for 1
+                contador++;
             }
         }
-    }
-
-    public ArrayList<Item> getListaDeItens() {
-        return listaDeItens;
+        return contador;
     }
 
     public void realizarPedido() {
@@ -79,8 +77,8 @@ public class Pedido {
 
         if (estoque.getListaDeProdutos().isEmpty()) {
             System.out.println("Desculpe, o estoque está vazio.");
+            return;
         }
-
 
         System.out.print("Digite o ID do produto desejado: ");
         int idProduto = scanner.nextInt();
@@ -89,6 +87,7 @@ public class Pedido {
         Produto produtoSelecionado = estoque.encontraProduto(idProduto);
         if (produtoSelecionado == null) {
             System.out.println("Produto não encontrado.");
+            return;
         }
 
         System.out.print("Digite a quantidade desejada: ");
@@ -97,7 +96,7 @@ public class Pedido {
 
         if (!estoque.temEstoqueOuNao(produtoSelecionado, quantidade)) {
             System.out.println("Desculpe, não há estoque suficiente para este produto.");
-
+            return;
         }
 
         if (pedido.adicionarItemNaLista(produtoSelecionado, quantidade)) {
@@ -113,17 +112,14 @@ public class Pedido {
         int valorPago = scanner.nextInt();
         scanner.nextLine();
 
-        if (valorPago<valorTotal){
+        if (valorPago < valorTotal) {
             System.out.println("Valor insuficiente.");
         } else {
-
-
             int troco = valorPago - valorTotal;
+            System.out.println("Troco: R$" + troco);
 
-
-            System.out.println("Troco: " + troco);
-
-            calcularNotasTroco(troco);
+            int quantidadeNotas = calcularNotasTroco(troco);
+            System.out.println("Quantidade de notas para o troco: " + quantidadeNotas);
         }
     }
 }

@@ -10,6 +10,6 @@ public class Main {
         Pessoa pai = new Pessoa("Carlos", 45, avoPaterno, avoMaterno);
         Pessoa mae = new Pessoa("Ana", 40, avoPaterna, avoMaterna);
         Pessoa filho = new Pessoa("Pedro", 20, pai, mae);
-        filho.imprimirArvoreGenealogica();
+        filho.imprimirArvoreGenealogica();//alterar o filho para mae,pai para testar
     }
 }
