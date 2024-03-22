@@ -69,9 +69,8 @@ public class Pedido {
         return contador;
     }
 
-    public void realizarPedido() {
+    public void realizarPedido(Estoque estoque) {
         Scanner scanner = new Scanner(System.in);
-        Estoque estoque = new Estoque();
         Pedido pedido = new Pedido();
         estoque.inicializaEstoque();
 

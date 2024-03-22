@@ -8,7 +8,6 @@ public class Estoque {
         inicializaEstoque();
     }
 
-    private int id = 1;
     private ArrayList<Produto> listaDeProdutos = new ArrayList<>();
 
     public void inicializaEstoque() {

@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class Main {
     private Scanner scanner;
+    Estoque estoque = new Estoque();
 
     public static void main(String[] args) {
         Main main = new Main();
@@ -31,7 +32,7 @@ public class Main {
                     estoque.imprimeCatalogoDoEstoque();
                     break;
                 case 2:
-                    pedido.realizarPedido();
+                    pedido.realizarPedido(estoque);
                     break;
                 case 3:
                     System.out.print("Digite o ID do produto desejado: ");

@@ -20,7 +20,6 @@ public class Contato {
         this.numero = numero;
     }
 
-    @Override
     public String toString() {
         return "Nome: " + nome + ", Número: " + numero;
     }
