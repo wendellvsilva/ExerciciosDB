@@ -72,7 +72,6 @@ public class Pedido {
     public void realizarPedido(Estoque estoque) {
         Scanner scanner = new Scanner(System.in);
         Pedido pedido = new Pedido();
-        estoque.inicializaEstoque();
 
         if (estoque.getListaDeProdutos().isEmpty()) {
             System.out.println("Desculpe, o estoque está vazio.");// se zerarmos todo o estoque, essa mensagem aparece.
