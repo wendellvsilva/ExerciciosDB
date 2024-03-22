@@ -44,7 +44,7 @@ public class Automovel {
     void desligar(int aceleracao) {
         if (vel > 0) {
             vel -= aceleracao;
-            if (vel < 0) { // aceleracao não pode ser negativa
+            if (vel < 0) { //aceleracao não pode ser negativa
                 vel = 0;
             }
         }

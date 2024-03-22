@@ -77,7 +77,6 @@ public class Pedido {
 
         if (estoque.getListaDeProdutos().isEmpty()) {
             System.out.println("Desculpe, o estoque está vazio.");
-            return;
         }
 
         System.out.print("Digite o ID do produto desejado: ");
@@ -87,7 +86,6 @@ public class Pedido {
         Produto produtoSelecionado = estoque.encontraProduto(idProduto);
         if (produtoSelecionado == null) {
             System.out.println("Produto não encontrado.");
-            return;
         }
 
         System.out.print("Digite a quantidade desejada: ");
@@ -96,7 +94,7 @@ public class Pedido {
 
         if (!estoque.temEstoqueOuNao(produtoSelecionado, quantidade)) {
             System.out.println("Desculpe, não há estoque suficiente para este produto.");
-            return;
+
         }
 
         if (pedido.adicionarItemNaLista(produtoSelecionado, quantidade)) {

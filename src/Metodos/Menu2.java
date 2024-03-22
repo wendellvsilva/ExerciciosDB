@@ -1,7 +1,5 @@
 package Metodos;
 
-import Metodos.Calculadora;
-
 import java.util.Scanner;
 
 public class Menu2 {
@@ -10,7 +8,7 @@ public class Menu2 {
 
         int escolha;
         do {
-            System.out.println("-----MENU DE OPÇÕES-------");
+            System.out.println("------MENU DE OPÇÕES-------");
             System.out.println("1 - Calcular média");
             System.out.println("2 - Equivalência de segundos");
             System.out.println("3 - Calculadora");
@@ -102,11 +100,11 @@ public class Menu2 {
     }
 
     public static int calcularMinutos(int segundos) {
-        return (segundos % 3600) / 60;
+        return (segundos % 3600) / 60; //utilizei modulos e divisão, basicamente oq restar, será dividido.
     }
 
     public static int calcularSegundos(int segundos) {
-        return segundos % 60;
+        return segundos % 60;//analogo a explicação de cima
     }
 
     public static void escreverEquivalencia(int totalSegundos, int horas, int minutos, int segundosRestantes) {
@@ -115,7 +113,7 @@ public class Menu2 {
     }
 
     public static void calculadora(Scanner scanner) {
-        System.out.println("Selecione uma operação:");
+        System.out.println("Selecione uma operação para realizar:");
         System.out.println("1 - Soma");
         System.out.println("2 - Subtração");
         System.out.println("3 - Multiplicação");
@@ -123,7 +121,7 @@ public class Menu2 {
         System.out.println("5 - Potenciação");
 
         int opcao = scanner.nextInt();
-        System.out.println("Digite os dois números:");
+        System.out.println("Digite dois números:");
 
         double num1 = scanner.nextDouble();
         double num2 = scanner.nextDouble();

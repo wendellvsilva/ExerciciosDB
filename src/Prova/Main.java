@@ -15,7 +15,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         Pedido pedido = new Pedido();
         while (true) {
-            System.out.println("=== MENU ===");
+            System.out.println("--------MENU---------");
             System.out.println("1. Mostrar estoque");
             System.out.println("2. Realizar um pedido");
             System.out.println("3. Procure um produto");
@@ -66,7 +66,7 @@ public class Main {
                     if (estoque.cadastraProduto(novoProduto)) {
                         System.out.println("Produto cadastrado com sucesso!");
                     } else {
-                        System.out.println("Erro ao cadastrar o produto.");
+                        System.out.println("TESTE ERRO");
                     }
                     break;
                 case 5:

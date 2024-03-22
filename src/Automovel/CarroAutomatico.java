@@ -37,13 +37,13 @@ public class CarroAutomatico extends Carro {
         //verifica se o freio está pressionado antes de ligar o carro
         if (c1.freioPressionado()) {
             System.out.println("Freio pressionado. Ligando o carro...");
-            System.out.println("Motorista:" + getNomeMotorista());
+            System.out.println("Motorista:" + Automovel.getNomeMotorista());
             System.out.println("Dirigindo..");
             System.out.println("Velocidade atual: " + c1.vel + "km/h");
 
             int escolha;
             do {
-                System.out.println("[1]Acelerar [2]Freiar [3]Buzinar [4]Desligar o carro [5]Pressionar freio");
+                System.out.println("[1]Acelerar [2]Freiar [3]Buzinar [4]Desligar o carro");
                 escolha = scanner.nextInt();
                 switch (escolha) {
                     case 1:
@@ -76,19 +76,10 @@ public class CarroAutomatico extends Carro {
                             System.out.println("Carro desligado.");
                         }
                         break;
-                    case 5:
-                        if (!c1.freioPressionado()) {
-                            c1.pressionarFreio();
-                            System.out.println("Freio pressionando.");
-                        } else {
-                            c1.soltarFreio();
-                            System.out.println("Freio solto.");
-                        }
-                        break;
                     default:
                         System.out.println("Opção inválida.");
                 }
-            } while (escolha != 0);
+            } while (escolha != 4);
         } else {
             System.out.println("Freio não pressionado. Não é possível ligar o carro.");
         }

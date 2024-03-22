@@ -13,6 +13,7 @@ public class Carro extends Automovel {
         c1.vel = 10;
         c1.nome = "Uno";
         c1.nomeMotor(scanner);
+        System.out.println("Motorista:" + Automovel.getNomeMotorista());
         System.out.println("Dirigindo..");
         System.out.println("Velocidade atual: " + c1.vel + "km/h");
 
@@ -57,7 +58,7 @@ public class Carro extends Automovel {
 
             }
 
-        } while (escolha != 0);
+        } while (escolha != 4);
 
 
     }

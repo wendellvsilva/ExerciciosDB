@@ -16,7 +16,7 @@ public class Moto extends Automovel {
 
         int escolha;
         do {
-            System.out.println("[1]Acelerar [2]Freiar [3]Buzinar [4]Ligar a moto[5]Desligar a moto");
+            System.out.println("[1]Acelerar [2]Freiar [3]Buzinar[4]Desligar a moto");
             escolha = scanner.nextInt();
             switch (escolha) {
                 case 1:
@@ -36,9 +36,6 @@ public class Moto extends Automovel {
                     m1.buzinar();
                     break;
                 case 4:
-                    System.out.println("Opção indisponível: partida elétrica removida.");
-                    break;
-                case 5:
                     if (m1.vel == 0) {
                         m1.desligar(0);
                         System.out.println("Moto desligada.");
@@ -54,7 +51,6 @@ public class Moto extends Automovel {
                         System.out.println("Moto desligada.");
                     }
                     break;
-
                 default:
                     System.out.println("Opção inválida!.");
                     break;
