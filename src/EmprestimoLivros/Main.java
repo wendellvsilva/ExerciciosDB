@@ -1,17 +1,13 @@
 package EmprestimoLivros;
 
-
 import java.util.ArrayList;
 import java.util.Scanner;
-
-//pesquisei um pouco sobre hashmaps em java, mas ainda não tenho a confiança e conhecimento de usar.
 
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         ArrayList<Pessoa> pessoas = new ArrayList<>();
         ArrayList<Livro> livros = new ArrayList<>();
-        ArrayList<Emprestimo> emprestimos = new ArrayList<>();
         int proximoIdPessoa = 1;
         int proximoIdLivro = 1;
 
@@ -51,8 +47,6 @@ public class Main {
                     int idLivro = scanner.nextInt();
 
                     Pessoa pessoaSelecionada = null;
-                    Livro livroSelecionado = null;
-
                     for (Pessoa pessoa : pessoas) {
                         if (pessoa.getId() == idPessoa) {
                             pessoaSelecionada = pessoa;
@@ -60,6 +54,7 @@ public class Main {
                         }
                     }
 
+                    Livro livroSelecionado = null;
                     for (Livro livro : livros) {
                         if (livro.getId() == idLivro) {
                             livroSelecionado = livro;
@@ -68,14 +63,7 @@ public class Main {
                     }
 
                     if (pessoaSelecionada != null && livroSelecionado != null) {
-                        if (!livroSelecionado.isEmprestado()) {
-                            Emprestimo emprestimo = new Emprestimo(livroSelecionado, pessoaSelecionada);
-                            livroSelecionado.emprestar();
-                            emprestimos.add(emprestimo);
-                            System.out.println("Empréstimo realizado com sucesso!");
-                        } else {
-                            System.out.println("Livro já está emprestado.");
-                        }
+                        livroSelecionado.emprestarPara(pessoaSelecionada);
                     } else {
                         System.out.println("ID da pessoa ou do livro inválido.");
                     }
@@ -93,27 +81,16 @@ public class Main {
                     }
 
                     if (livroDevolucao != null) {
-                        if (livroDevolucao.isEmprestado()) {
-                            for (Emprestimo emprestimo : emprestimos) {
-                                if (emprestimo.getLivro().getId() == livroDevolucao.getId()) {
-                                    livroDevolucao.devolver();
-                                    emprestimos.remove(emprestimo);
-                                    System.out.println("Livro devolvido com sucesso!");
-                                    break;
-                                }
-                            }
-                        } else {
-                            System.out.println("Livro não está emprestado.");
-                        }
+                        livroDevolucao.devolver();
                     } else {
-                        System.out.println("ID do livro inválido.");
+                        System.out.println("Livro não encontrado!");
                     }
                     break;
                 case 0:
                     System.out.println("Obrigado por utilizar nossa livraria!");
                     break;
                 default:
-                    System.out.println("Opção inválida!");
+                    System.out.println("Opção inválida! Digite novamente.");
             }
         } while (escolha != 0);
 

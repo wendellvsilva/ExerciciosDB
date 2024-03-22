@@ -76,7 +76,7 @@ public class Pedido {
         estoque.inicializaEstoque();
 
         if (estoque.getListaDeProdutos().isEmpty()) {
-            System.out.println("Desculpe, o estoque está vazio.");
+            System.out.println("Desculpe, o estoque está vazio.");// se zerarmos todo o estoque, essa mensagem aparece.
         }
 
         System.out.print("Digite o ID do produto desejado: ");
@@ -111,7 +111,7 @@ public class Pedido {
         scanner.nextLine();
 
         if (valorPago < valorTotal) {
-            System.out.println("Valor insuficiente.");
+            System.out.println("Valor insuficiente.");//caso o cliente queira dar um valor menor que o preço do pedido
         } else {
             int troco = valorPago - valorTotal;
             System.out.println("Troco: R$" + troco);
