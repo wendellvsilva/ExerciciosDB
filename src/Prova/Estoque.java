@@ -24,7 +24,7 @@ public class Estoque {
     public void imprimeCatalogoDoEstoque() {
         System.out.println("Estoque:");
         for (Produto produto : listaDeProdutos) {
-            System.out.println(produto.getNome() + " - " + produto.getQuantidadeEmEstoque());
+            System.out.println( " ID: " + produto.getId() + " - " + produto.getNome() + " - " + produto.getQuantidadeEmEstoque());
         }
     }
 

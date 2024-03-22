@@ -309,7 +309,7 @@ public class Menu {
     public static void doisVetoresArraysSort(Random random) {
 
         int[] vetor1 = criarVetorAleatorio(50, random);
-        Arrays.sort(vetor1);
+        Arrays.sort(vetor1);//funcio
 
         int[] vetor2 = criarVetorAleatorio(50, random);
         Arrays.sort(vetor2);
